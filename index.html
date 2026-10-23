@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#8F1D2C">
+<title>アミューズメントパーク『楽』</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #F8F4EF; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+<!-- 本体(Google Apps Script)をこの中に表示する。こうするとGoogleの注意書きの帯が出ない -->
+<iframe id="app" title="アミューズメントパーク『楽』" allow="clipboard-write"></iframe>
+<script>
+  var EXEC = 'https://script.google.com/macros/s/AKfycbwMVG8rTCvM_w_CvD6HL5RxuKZI_JyIVLvf9tlTk7pI922vHbC8DjkvZx4lmv5VewC94A/exec';
+  var q = new URLSearchParams(location.search);
+  q.set('embed', location.origin + location.pathname);
+  document.getElementById('app').src = EXEC + '?' + q.toString();
+  // 本体から「アドレス欄を更新して」と言われたら書き換える(再読み込みしても自分の画面に戻れるように)
+  window.addEventListener('message', function (e) {
+    try {
+      if (!/\.googleusercontent\.com$/.test(new URL(e.origin).hostname)) return;
+      var d = e.data || {};
+      if (d.type === 'raku-url') history.replaceState(null, '', location.pathname + (d.qs ? '?' + d.qs : ''));
+    } catch (err) {}
+  });
+</script>
+</body>
+</html>
