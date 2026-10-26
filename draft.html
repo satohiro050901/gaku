@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#8F1D2C">
+<title>【下書き】ルーレット・ポーカー|楽(がく)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#8F1D2C; --crimson-dk:#581520; --crimson-tint:#F5E8E9;
+  --bg:#F8F4EF; --card:#FFFCF8; --gold:#B89A62; --gold-tint:#F5EEE1;
+  --text:#302522; --sub:#82746D; --line:#E8DDD4; --line-strong:#D9CBBE;
+  --f-display:"Cormorant Garamond","Noto Serif JP",serif;
+  --f-serif:"Noto Serif JP","Hiragino Mincho ProN",serif;
+  --f-ui:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-ui);font-size:15px;line-height:1.7}
+.wrap{max-width:640px;margin:0 auto;padding:16px 16px 48px}
+header{background:linear-gradient(120deg,var(--crimson-dk),var(--crimson));color:var(--card);border-radius:14px;padding:16px 18px 18px;margin-bottom:14px}
+header .en{font-family:var(--f-display);font-size:11px;letter-spacing:.32em;color:#D9C496}
+header h1{margin:4px 0 0;font-family:var(--f-serif);font-size:22px;letter-spacing:.04em}
+header h1 small{font-family:var(--f-display);font-size:12px;letter-spacing:.3em;color:#D9C496;margin-left:8px}
+header p{margin:6px 0 0;font-size:13px;opacity:.85}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav a{flex:none;padding:6px 12px;border-radius:999px;border:1px solid var(--line-strong);background:var(--card);color:var(--text);font-size:13px;text-decoration:none;white-space:nowrap}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin-bottom:14px;scroll-margin-top:56px}
+h2{margin:0 0 10px;font-family:var(--f-serif);font-size:18px;color:var(--crimson-dk);display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:14px;height:1px;background:var(--gold)}
+h3{margin:14px 0 6px;font-size:15px}
+ol.flow{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.flow>li{position:relative;padding:0 0 14px 40px;counter-increment:s}
+ol.flow>li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--crimson);color:var(--card);font-family:var(--f-display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center}
+ol.flow>li>b{display:block;font-size:16px;margin-bottom:2px}
+q{display:block;quotes:"「" "」";margin:6px 0;padding:7px 12px;background:var(--gold-tint);border-radius:8px;font-weight:700;color:#5E4A25}
+em{font-style:normal;font-weight:700;color:var(--crimson)}
+.row{padding:10px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border-bottom:0}
+.row span{display:block;font-size:13px;color:var(--sub)}
+.row b{color:var(--crimson-dk)}
+ul{margin:0;padding-left:1.2em}
+ul li{margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-size:13px}
+.chip i{width:14px;height:14px;border-radius:50%;border:1px solid #9C8F84}
+.note{font-size:13px;color:var(--sub)}
+.box{background:var(--crimson-tint);border-radius:10px;padding:10px 12px;font-size:14px;margin:8px 0}
+footer{text-align:center;font-size:12px;color:var(--sub);margin-top:20px}
+.draft{background:#FFF4D6;border:1px solid #E9C46A;color:#6B4E00;border-radius:10px;padding:10px 12px;font-size:14px;margin-bottom:14px}
+.kari,.row .kari{display:inline-block;width:auto;font-size:11px;font-weight:700;color:#8A5A00;background:#FFE7A3;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:7px 4px;border-bottom:1px dashed var(--line)}
+td:last-child{text-align:right;font-weight:700;color:var(--crimson-dk);white-space:nowrap}
+.q{background:var(--gold-tint);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14px}
+.q b{color:#5E4A25}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="en">AMUSEMENT PARK</div>
+    <h1>楽<small>GAKU</small></h1>
+    <p>【下書き】ルーレット・ポーカーのディーラーマニュアル</p>
+  </header>
+  <div class="draft"><b>確認用の下書きです(まだディーラーには送らない)。</b><br><span class="kari">仮</span> が付いているところは、まだ決まっていないのでおすすめの案で埋めています。いちばん下の「確認すること」にOKかどうかを返してください。</div>
+  <nav>
+    <a href="#rl">ルーレット</a>
+    <a href="#rlpay">配当</a>
+    <a href="#pk">ポーカー</a>
+    <a href="#pkpot">サイドポット</a>
+    <a href="#check">確認すること</a>
+  </nav>
+
+  <section id="rl">
+    <h2>ルーレット 準備</h2>
+    <ul>
+      <li>台:0と00がある台(38マス)</li>
+      <li>席ごとに<em>席番号を書いたマーカー</em>(1〜7)を1つずつ渡す</li>
+      <li>お客さんの前に、それぞれの<em>ベットスペース</em>(チップを置く場所)を作る</li>
+      <li>当たった数字に置く<em>当たり目印</em><span class="kari">仮</span>(マーカーと見分けがつくもの。例:ペットボトルのキャップ)</li>
+      <li>払い出し用のチップを手元に色ごとに並べておく</li>
+    </ul>
+    <h2 style="margin-top:16px">1ゲームの流れ</h2>
+    <ol class="flow">
+      <li><b>賭けてもらう</b><q>チップとマーカーを置いてください</q>チップは<em>自分のベットスペース</em>に、マーカーは<em>台の賭けたい場所</em>に置く。賭けられるのは<em>1人1か所</em>。ほかの人と同じ場所でもOK(マーカーを重ねる)。</li>
+      <li><b>締め切る</b><span class="kari">仮</span><br>全員置いたら、<em>玉を投げる前に</em>手を左→右に払う<q>締め切ります</q>締め切ったあとは、マーカーもチップも動かせない。</li>
+      <li><b>回す</b>ホイールを回し、玉をホイールと逆の向きに投げる<q>スタート!</q></li>
+      <li><b>読み上げる</b>玉が止まったら数字と色を読み上げ、その数字に当たり目印を置く<q>○番、赤です!</q></li>
+      <li><b>外れを回収</b>外れたマーカーの人の<em>ベットスペースのチップ</em>を回収し、マーカーを本人に返す</li>
+      <li><b>当たりに払う</b>当たったマーカーの人のベットスペースに、下の配当どおり払い出し用から置く<q>おめでとうございます!</q>賭けたチップはそのまま本人のもの。</li>
+      <li><b>片付け</b>当たり目印とマーカーを外して①へ</li>
+    </ol>
+    <h3>こんなとき</h3>
+    <div class="row"><span>玉がホイールの外に飛び出した</span><b>投げ直す</b><span class="kari">仮</span><q>もう一度投げます</q></div>
+    <div class="row"><span>締め切ったあとにマーカーを動かした</span><b>動かす前の場所で判定</b><span class="kari">仮</span></div>
+    <div class="row"><span>マーカーを置く場所</span>数字1つ=数字の真ん中 / 隣り合う2つ=2つの数字の境目の線の上 / それ以外=その枠の中</div>
+  </section>
+
+  <section id="rlpay">
+    <h2>ルーレットの配当</h2>
+    <table>
+      <tr><td>数字1つ(ストレート・0や00も)</td><td>35倍</td></tr>
+      <tr><td>隣り合う2つの数字(スプリット)</td><td>17倍</td></tr>
+      <tr><td>1st/2nd/3rd 12(ダズン)</td><td>2倍</td></tr>
+      <tr><td>縦の列(コラム・2 to 1)</td><td>2倍</td></tr>
+      <tr><td>赤/黒・奇数/偶数・1〜18/19〜36</td><td>1倍</td></tr>
+    </table>
+    <p class="note">例:5枚を数字1つに賭けて当たり → 175枚を払う(賭けた5枚も返る)。<br>0か00が出たら、赤黒・奇数偶数・前半後半・ダズン・コラムは<em>全員負け</em>。<br>4つの数字(コーナー)など、ほかの賭け方はなし。</p>
+  </section>
+
+  <section id="pk">
+    <h2>ポーカー(テキサスホールデム)</h2>
+    <p class="note">ディーラーはゲームに参加せず、カードを配って進行とチップの管理をします。</p>
+    <ul>
+      <li>人数:2〜<span>8</span>人<span class="kari">仮</span></li>
+      <li>ブラインド:<em>小=1枚・大=2枚</em>。ディーラーボタン(目印)は1ゲームごとに左へ1つ動かす</li>
+      <li>トランプ:1組を毎回シャッフル<span class="kari">仮</span></li>
+    </ul>
+    <h2 style="margin-top:16px">1ゲームの流れ</h2>
+    <ol class="flow">
+      <li><b>ブラインド</b>ボタンの左の人が1枚(小)、その左が2枚(大)を置く<q>ブラインドお願いします</q></li>
+      <li><b>手札を配る</b>小ブラインドの人から時計回りに、裏向きで1枚ずつ×2周</li>
+      <li><b>1回目の賭け</b>大ブラインドの左の人から<q>どうしますか?</q>フォールド(降りる)・コール(同じ額)・レイズ(上乗せ)</li>
+      <li><b>フロップ</b>場に表向きで3枚。小ブラインドの人(残っている中でボタンの左)から賭け。チェック(そのまま)もできる</li>
+      <li><b>ターン</b>場に1枚追加 → 賭け</li>
+      <li><b>リバー</b>場に1枚追加 → 最後の賭け</li>
+      <li><b>勝負(ショーダウン)</b>残った人が手札を見せる。手札2枚+場5枚から一番強い5枚で役を比べる。最後に賭けた人から見せる</li>
+      <li><b>払う</b>ポットを勝った人へ。同じ強さなら<em>山分け</em>、割り切れない1枚は<em>ボタンの左に近い人</em><span class="kari">仮</span></li>
+    </ol>
+    <h3>賭けのルール</h3>
+    <div class="row"><span>レイズの最小</span><b>直前の賭け(上乗せ)と同じ額以上</b><span class="kari">仮</span><br>例:2枚に対して4枚にレイズしたら、次のレイズは6枚以上</div>
+    <div class="row"><span>レイズの上限</span><b>なし</b>(手元のチップ全部まで=オールイン)</div>
+    <div class="row"><span>途中で全員が降りた</span>最後に残った1人がポットをもらう(手札は見せなくてよい)</div>
+    <div class="row"><span>時間切れの人</span>今のゲームは最後まで。終わったら「席を離れる」を案内</div>
+  </section>
+
+  <section id="pkpot">
+    <h2>サイドポット(オールインのとき)<span class="kari">仮</span></h2>
+    <p>チップが足りなくて全部賭けた人(オールイン)がいるときは、ポットを分けます。</p>
+    <ol class="flow">
+      <li><b>メインポット</b>オールインした人の額まで、全員から同じ額ずつ集めた分。<em>オールインした人も含めて全員</em>で取り合う。</li>
+      <li><b>サイドポット</b>それを超えた分。<em>オールインした人以外</em>で取り合う。チップの山を分けて横に置く。</li>
+      <li><b>勝負</b>サイドポット → メインポットの順に勝者を決めて払う。</li>
+    </ol>
+    <div class="q"><b>例</b>:Aさん(残り10枚)がオールイン、BさんとCさんが30枚ずつ賭けた<br>メインポット=10×3人=30枚(A・B・Cで勝負)<br>サイドポット=20×2人=40枚(B・Cだけで勝負)</div>
+    <p class="note">オールインが2人以上いるときも、少ない人の額から順に同じように分ける。迷ったら黒服を呼ぶ。</p>
+  </section>
+
+  <section id="check">
+    <h2>確認すること(OKかどうかだけ返してください)</h2>
+    <ol>
+      <li>ルーレットの締め切りは「玉を投げる前」</li>
+      <li>当たり目印は「ペットボトルのキャップなど」</li>
+      <li>玉が飛び出したら「投げ直し」</li>
+      <li>締め切り後にマーカーを動かしたら「動かす前の場所で判定」</li>
+      <li>ポーカーは1卓「2〜8人」</li>
+      <li>ポーカーのトランプは「1組を毎回シャッフル」</li>
+      <li>レイズの最小は「直前の上乗せと同じ額以上」</li>
+      <li>山分けで余った1枚は「ボタンの左に近い人」</li>
+      <li>サイドポットは上の「一般的な分け方」</li>
+    </ol>
+  </section>
+  <footer>アミューズメントパーク『楽(がく)』 · 下書き</footer>
+</div>
+</body>
+</html>
