@@ -34,7 +34,7 @@
 <!-- 本体(Google Apps Script)をこの中に表示する。こうするとGoogleの注意書きの帯が出ない -->
 <iframe id="app" title="アミューズメントパーク『楽(がく)』" allow="clipboard-write"></iframe>
 <div id="scan"><video playsinline muted></video><div class="frame"></div>
-  <div class="bar"><p>椅子のQRコードを枠の中に写してください</p><button type="button" id="close">やめる</button></div></div>
+  <div class="bar"><p>椅子か出口のQRコードを枠の中に写してください</p><button type="button" id="close">やめる</button></div></div>
 <script>
   var EXEC = 'https://script.google.com/macros/s/AKfycbwMVG8rTCvM_w_CvD6HL5RxuKZI_JyIVLvf9tlTk7pI922vHbC8DjkvZx4lmv5VewC94A/exec';
   var app = document.getElementById('app');
@@ -85,6 +85,7 @@
             var code = window.jsQR(d.data, d.width, d.height, { inversionAttempts: 'dontInvert' });
             var m = code && (/[?&]seat=([A-Z]+-\d+)/.exec(code.data) || /^([A-Z]+-\d+)$/.exec(code.data));
             if (m) { try { navigator.vibrate && navigator.vibrate(80); } catch (e) {} stopScan(); tell({ type: 'raku-seat', seat: m[1] }); return; }
+            if (code && (/[?&]exit=1/.test(code.data) || code.data === 'EXIT')) { try { navigator.vibrate && navigator.vibrate(80); } catch (e) {} stopScan(); tell({ type: 'raku-exit' }); return; }
           }
           timer = requestAnimationFrame(loop);
         };
