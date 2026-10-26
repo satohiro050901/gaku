@@ -38,9 +38,15 @@
   var EXEC = 'https://script.google.com/macros/s/AKfycbwMVG8rTCvM_w_CvD6HL5RxuKZI_JyIVLvf9tlTk7pI922vHbC8DjkvZx4lmv5VewC94A/exec';
   var app = document.getElementById('app');
   var q = new URLSearchParams(location.search);
+  // このスマホで登録したお客さんを覚えておく(入口のQRをもう一度読んだ時に、前回の画面を開く)
+  function mem(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } }
+  if (!q.get('p') && !q.get('page') && !q.get('r') && mem('raku_p')) q.set('p', mem('raku_p'));
   q.set('embed', location.origin + location.pathname);
   app.src = EXEC + '?' + q.toString();
-  setTimeout(function () { var b = document.getElementById('boot'); b.style.opacity = 0; setTimeout(function () { b.remove(); }, 400); }, 1800);
+  // ロゴは本体の最初の画面が出るまで表示(長くても15秒で消す)
+  var booted = false;
+  function hideBoot() { if (booted) return; booted = true; var b = document.getElementById('boot'); b.style.opacity = 0; setTimeout(function () { b.remove(); }, 400); }
+  setTimeout(hideBoot, 15000);
 
   // 本体の中(何段か入れ子のフレーム)すべてに知らせる
   function tell(msg, w) {
@@ -92,7 +98,12 @@
     try {
       if (!/\.googleusercontent\.com$/.test(new URL(e.origin).hostname)) return;
       var d = e.data || {};
-      if (d.type === 'raku-url') history.replaceState(null, '', location.pathname + (d.qs ? '?' + d.qs : ''));
+      if (d.type === 'raku-url') {
+        history.replaceState(null, '', location.pathname + (d.qs ? '?' + d.qs : ''));
+        var p = new URLSearchParams(d.qs || '').get('p'); if (p) mem('raku_p', p);
+      }
+      if (d.type === 'raku-forget') mem('raku_p', null);
+      if (d.type === 'raku-ready') hideBoot();
       if (d.type === 'raku-scan') startScan();
     } catch (err) {}
   });
