@@ -12,44 +12,34 @@
 :root{
   --crimson:#8F1D2C; --crimson-dk:#581520; --crimson-tint:#F5E8E9;
   --bg:#F8F4EF; --card:#FFFCF8; --gold:#B89A62; --gold-tint:#F5EEE1;
-  --text:#302522; --sub:#82746D; --line:#E8DDD4; --line-strong:#D9CBBE;
+  --text:#302522; --sub:#82746D; --line:#E8DDD4;
   --f-display:"Cormorant Garamond","Noto Serif JP",serif;
   --f-serif:"Noto Serif JP","Hiragino Mincho ProN",serif;
   --f-ui:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-ui);font-size:15px;line-height:1.7}
-.wrap{max-width:640px;margin:0 auto;padding:16px 16px 48px}
-header{background:linear-gradient(120deg,var(--crimson-dk),var(--crimson));color:var(--card);border-radius:14px;padding:16px 18px 18px;margin-bottom:14px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-ui);font-size:14px;line-height:1.55}
+.wrap{max-width:640px;margin:0 auto;padding:14px 12px 40px}
+header{background:linear-gradient(120deg,var(--crimson-dk),var(--crimson));color:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:12px}
 header .en{font-family:var(--f-display);font-size:11px;letter-spacing:.32em;color:#D9C496}
-header h1{margin:4px 0 0;font-family:var(--f-serif);font-size:22px;letter-spacing:.04em}
+header h1{margin:2px 0 0;font-family:var(--f-serif);font-size:20px}
 header h1 small{font-family:var(--f-display);font-size:12px;letter-spacing:.3em;color:#D9C496;margin-left:8px}
-header p{margin:6px 0 0;font-size:13px;opacity:.85}
-nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-nav a{flex:none;padding:6px 12px;border-radius:999px;border:1px solid var(--line-strong);background:var(--card);color:var(--text);font-size:13px;text-decoration:none;white-space:nowrap}
-section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin-bottom:14px;scroll-margin-top:56px}
-h2{margin:0 0 10px;font-family:var(--f-serif);font-size:18px;color:var(--crimson-dk);display:flex;align-items:center;gap:8px}
-h2::before{content:"";width:14px;height:1px;background:var(--gold)}
-h3{margin:14px 0 6px;font-size:15px}
-ol.flow{margin:0;padding:0;list-style:none;counter-reset:s}
-ol.flow>li{position:relative;padding:0 0 14px 40px;counter-increment:s}
-ol.flow>li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--crimson);color:var(--card);font-family:var(--f-display);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center}
-ol.flow>li>b{display:block;font-size:16px;margin-bottom:2px}
-q{display:block;quotes:"「" "」";margin:6px 0;padding:7px 12px;background:var(--gold-tint);border-radius:8px;font-weight:700;color:#5E4A25}
-em{font-style:normal;font-weight:700;color:var(--crimson)}
-.row{padding:10px 0;border-bottom:1px dashed var(--line)}
-.row:last-child{border-bottom:0}
-.row span{display:block;font-size:13px;color:var(--sub)}
-.row b{color:var(--crimson-dk)}
-ul{margin:0;padding-left:1.2em}
-ul li{margin-bottom:6px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;font-size:13px}
-.chip i{width:14px;height:14px;border-radius:50%;border:1px solid #9C8F84}
-.note{font-size:13px;color:var(--sub)}
-.box{background:var(--crimson-tint);border-radius:10px;padding:10px 12px;font-size:14px;margin:8px 0}
-footer{text-align:center;font-size:12px;color:var(--sub);margin-top:20px}
+header p{margin:4px 0 0;font-size:13px;opacity:.85}
+.tbl{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.th,.r{display:grid;grid-template-columns:1fr 1fr}
+.th div{background:var(--crimson-dk);color:var(--card);font-weight:700;font-size:13px;padding:8px 10px}
+.th div+div{background:#7A5A2E}
+.step{background:var(--crimson-tint);color:var(--crimson-dk);font-family:var(--f-serif);font-weight:700;font-size:15px;padding:7px 10px;border-top:1px solid var(--line)}
+.r>div{padding:8px 10px;border-top:1px dashed var(--line)}
+.r>div+div{background:var(--gold-tint);font-weight:700;color:#5E4A25;border-left:1px solid var(--line)}
+.r>div+div:empty{background:transparent}
+.r em{font-style:normal;color:var(--crimson);font-weight:700}
+.sub{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13px}
+.sub b{color:var(--crimson-dk)}
+.sub p{margin:0 0 8px}.sub p:last-child{margin:0}
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 10px;margin-top:4px}
+footer{text-align:center;font-size:12px;color:var(--sub);margin-top:18px}
 </style>
 </head>
 <body>
@@ -59,83 +49,40 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:20px}
     <h1>楽<small>GAKU</small></h1>
     <p>ディーラーマニュアル(ブラックジャック)</p>
   </header>
-
-  <nav>
-    <a href="#app">アプリの使い方</a>
-    <a href="#flow">1ゲームの流れ</a>
-    <a href="#sign">合図</a>
-    <a href="#pay">払い方</a>
-    <a href="#memo">覚えておくこと</a>
-    <a href="#shuffle">シャッフル</a>
-  </nav>
-
-  <section id="app">
-    <h2>アプリの使い方</h2>
-    <ol class="flow">
-      <li><b>ディーラー画面を開く</b>当日リーダーから送られるスタッフ用のURLを開き、PINでログイン →「ディーラー」を押す。上のタブで自分の卓(ブラックジャック)を選ぶ。</li>
-      <li><b>お客さんが座ったら</b>お客さんがスマホで椅子のQRを読むと、画面に「○番席 △△:チップを渡してください」と出る。<br>書いてある<em>色と枚数のとおり</em>にチップを渡して「渡した」を押す。
-        <div class="chips"><span class="chip"><i style="background:#fff"></i>白=1</span><span class="chip"><i style="background:#C8323F"></i>赤=5</span><span class="chip"><i style="background:#7A4FA0"></i>紫=10</span><span class="chip"><i style="background:#8FD3EE"></i>水色=50</span><span class="chip"><i style="background:#222"></i>黒=100</span></div>
-        <span class="note">例:「白1×5枚・赤5×3枚・紫10×1枚」=30</span></li>
-      <li><b>追加購入があったとき</b>お客さんが席で追加購入すると、追加分だけ「渡してください」と出る。同じように渡して「渡した」を押す。</li>
-      <li><b>勝っているお客さんには</b>スマホの「チップを記録する」を案内する(ランキングが更新される)。</li>
-      <li><b>席を離れるとき</b>お客さんがスマホの「席を離れる」でチップを撮影 → <em>チップを回収</em>する。0枚の人は撮影なしで記録できる。</li>
-      <li><b>画面の色</b>席の色で状態がわかる:渡す前・残り5分・時間切れ/警告(チップが急に増えた)。困ったら席を押すと操作できる。</li>
-    </ol>
-    <div class="box">画面の「マニュアル」ボタンからも、このページと同じ内容を見られます。</div>
-  </section>
-
-  <section id="flow">
-    <h2>1ゲームの流れ</h2>
-    <ol class="flow">
-      <li><b>チップを置いてもらう</b><q>チップを置いてください</q>1枚以上なら上限なし。全員置いたら手を左→右に払う<q>締め切ります</q>締め切ったあとは、足したり減らしたりできない。</li>
-      <li><b>配る</b>左の人から右へ表向きで1枚ずつ。ディーラーは最後に<em>表</em>で1枚。<br>2周目も左から。1枚目に少し重ねて、左上と右下の数字が見えるように置く。ディーラーは<em>裏</em>で1枚(のぞかない)。<br>2枚で21のお客さんには<q>ブラックジャックです!おめでとうございます!</q>チップは最後の精算でまとめて払う。</li>
-      <li><b>お客さんの番(左から1人ずつ)</b>カードの前に右手を差し出す<q>○点です。どうしますか?</q>21点ちょうどになったら<q>21点です!</q>次の人へ。<br>22点以上(バースト)は<em>その場ですぐ</em>チップとカードを回収<q>バーストです。残念です</q></li>
-      <li><b>ディーラーの番</b>全員バーストしていたら、裏はめくらずに終了。<br>それ以外は裏をめくって読み上げる。<em>16点以下は引く・17点以上で止まる</em>(Aを含む17も止まる)<q>ディーラーは○点です</q>ディーラーがバーストしたら<q>ディーラーのバーストです!残っている方の勝ちです!</q></li>
-      <li><b>精算(右の人から)</b>下の「払い方」のとおり。</li>
-      <li><b>片付け</b>ディーラーのカード → 右の人から順に回収。①に戻る。</li>
-    </ol>
-  </section>
-
-  <section id="sign">
-    <h2>お客さんの合図</h2>
-    <div class="row"><span>テーブルを2回タップ</span><b>ヒット</b>:1枚配る</div>
-    <div class="row"><span>手を振る</span><b>スタンド</b>:次の人へ<q>○点でスタンドですね</q></div>
-    <div class="row"><span>「ダブル」と言う</span><b>ダブルダウン</b>:最初の2枚のときだけ。同じ枚数を追加で置いてもらい、カードを<em>横向き</em>で1枚だけ配って終わり。チップが足りない人はできない。</div>
-  </section>
-
-  <section id="pay">
-    <h2>払い方</h2>
-    <div class="row"><span>勝ち</span><b>賭けたチップと同じ枚数</b>を、賭けたチップの横に並べる<q>おめでとうございます</q></div>
-    <div class="row"><span>ブラックジャック(最初の2枚で21)</span><b>賭けたチップの2倍</b><q>ブラックジャック、2倍です!</q></div>
-    <div class="row"><span>引き分け/両方ブラックジャック</span><b>そのまま返す</b><q>引き分けです</q></div>
-    <div class="row"><span>負け</span><b>回収</b><q>残念です</q></div>
-    <div class="row"><span>ディーラーがブラックジャック</span>お客さんがブラックジャックでなければ、ダブルダウンの追加分も含めて<b>回収</b></div>
-    <p class="note">払うチップは、回収したチップではなく手元の払い出し用から出す。</p>
-  </section>
-
-  <section id="memo">
-    <h2>覚えておくこと</h2>
-    <ul>
-      <li>途中で座った人は次のゲームから<q>次のゲームからどうぞ</q></li>
-      <li>時間切れのお知らせが来た人は、今のゲームを最後までやってから<q>このゲームが終わったら、「席を離れる」をお願いします</q></li>
-      <li>チップが0枚になった人<q>スマホの「席を離れる」→「チップが0枚になった」を押してください。追加購入すればこの席で続けられます</q></li>
-      <li>スプリット・インシュランス(保険)・サレンダー(降参)は<em>なし</em><q>このお店では使っていません</q></li>
-      <li>換金はできない<q>チップはランキング用なので、換金はできません</q></li>
-      <li>迷ったら、アプリの「サポートAI」に聞くか、黒服を呼ぶ</li>
-    </ul>
-  </section>
-
-  <section id="shuffle">
-    <h2>シャッフル</h2>
-    <ul>
-      <li>トランプは<em>2組を混ぜて</em>使う(104枚)</li>
-      <li>テーブルに裏向きで広げて両手でかき混ぜ、1つの山にまとめる</li>
-      <li>下から30枚くらいのところに目印のカードを挟む</li>
-      <li>目印が出たら、<em>そのゲームが終わってから</em>シャッフル</li>
-    </ul>
-  </section>
-
-  <footer>アミューズメントパーク『楽(がく)』 · ルーレット・ポーカーは準備中</footer>
+  <div class="tbl">
+    <div class="th"><div>ゲームの流れ</div><div>セリフ</div></div>
+    <div class="step">① ベット</div>
+    <div class="r"><div>チップを置いてもらう(1枚以上)</div><div>「チップを置いてください」</div></div>
+    <div class="r"><div>全員置いたら、手を左→右に払う</div><div>「締め切ります」</div></div>
+    <div class="step">② 配る</div>
+    <div class="r"><div>左から1枚ずつ表 → ディーラーも表</div><div></div></div>
+    <div class="r"><div>もう1周 → ディーラーは<em>裏</em>(のぞかない)</div><div></div></div>
+    <div class="r"><div>2枚で21の人がいたら</div><div>「Blackjack!おめでとうございます!」</div></div>
+    <div class="step">③ お客さんの番(左から)</div>
+    <div class="r"><div>カードの前に右手を差し出す</div><div>「Fifteen. どうしますか?」</div></div>
+    <div class="r"><div>2回タップ → 1枚配る</div><div></div></div>
+    <div class="r"><div>手を振る → 次の人へ</div><div>「Fifteen. スタンドですね」</div></div>
+    <div class="r"><div>「ダブル」→ 同じ枚数を足して、<em>横向きに1枚だけ</em></div><div></div></div>
+    <div class="r"><div>22以上 → その場でチップとカードを回収</div><div>「Bust」</div></div>
+    <div class="step">④ ディーラーの番</div>
+    <div class="r"><div>裏をめくる</div><div>「Dealer, seventeen」</div></div>
+    <div class="r"><div><em>16以下は引く、17以上で止まる</em></div><div></div></div>
+    <div class="r"><div>ディーラーが22以上</div><div>「Dealer bust!残っている方の勝ちです!」</div></div>
+    <div class="step">⑤ 精算(右から)</div>
+    <div class="r"><div>勝ち → 同じ枚数を横に並べて払う</div><div>「おめでとうございます」</div></div>
+    <div class="r"><div>ブラックジャック → <em>2倍</em></div><div>「Blackjack、2倍です!」</div></div>
+    <div class="r"><div>引き分け → そのまま返す</div><div>「引き分けです」</div></div>
+    <div class="r"><div>負け → 回収</div><div></div></div>
+    <div class="step">⑥ 片付け</div>
+    <div class="r"><div>カードをディーラー → 右から回収 → ①へ</div><div></div></div>
+  </div>
+  <div class="sub">
+    <p><b>なし:</b>スプリット・インシュランス・サレンダー</p>
+    <p><b>シャッフル:</b>2組を混ぜて、下から30枚くらいに目印 → 目印が出たら、そのゲームのあとにシャッフル</p>
+    <p><b>点数の英語</b>(「Fifteen」は例。実際の点数で言う)</p>
+    <div class="nums"><span>12 twelve</span><span>13 thirteen</span><span>14 fourteen</span><span>15 fifteen</span><span>16 sixteen</span><span>17 seventeen</span><span>18 eighteen</span><span>19 nineteen</span><span>20 twenty</span><span>21 twenty-one</span></div>
+  </div>
+  <footer>アミューズメントパーク『楽(がく)』</footer>
 </div>
 </body>
 </html>
